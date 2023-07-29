@@ -4,6 +4,8 @@ const swaggerUi = require("swagger-ui-express"),
 
 const { errorHandler } = require("./middleware/error");
 const petRouter = require("./routes/pet");
+const storeRouter = require("./routes/store");
+const userRouter = require("./routes/user");
 
 require("dotenv").config();
 
@@ -18,6 +20,8 @@ app.get("/", (_, res) => {
 });
 
 app.use("/v1/pet", petRouter);
+app.use("/v1/store", storeRouter);
+app.use("/v1/user", userRouter);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(errorHandler);
