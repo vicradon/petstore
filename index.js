@@ -1,7 +1,10 @@
 const express = require("express");
+const swaggerUi = require("swagger-ui-express"),
+  swaggerDocument = require("./openapi.json");
 
 const { errorHandler } = require("./middleware/error");
 const petRouter = require("./routes/pet");
+
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +18,7 @@ app.get("/", (_, res) => {
 });
 
 app.use("/v1/pet", petRouter);
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(errorHandler);
 
