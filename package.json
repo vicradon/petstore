@@ -1,0 +1,25 @@
+{
+  "name": "petstore",
+  "version": "1.0.0",
+  "description": "The Petstore API Spec offered by SwaggerHub",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "joi": "^17.9.2",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.32.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.1"
+  }
+}
