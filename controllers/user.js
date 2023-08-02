@@ -6,7 +6,6 @@ class UserController {
   async createWithArray(req, res) {
     const schema = Joi.array().items(
       Joi.object({
-        id: Joi.number().integer().required(),
         username: Joi.string().required(),
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
@@ -34,7 +33,6 @@ class UserController {
   async createWithList(req, res) {
     const schema = Joi.array().items(
       Joi.object({
-        id: Joi.number().integer().required(),
         username: Joi.string().required(),
         firstName: Joi.string().required(),
         lastName: Joi.string().required(),
@@ -171,6 +169,16 @@ class UserController {
     const user = await User.findOne({ where: { username, password } });
 
     return user;
+  }
+
+  // GET /user
+  async listUsers(req, res) {
+    try {
+      const users = await User.findAll();
+      return res.json({ data: users, message: "fetch users successfully" });
+    } catch (error) {
+      return res.status(500).json({ error: "Failed to list users" });
+    }
   }
 
   // POST /user/login

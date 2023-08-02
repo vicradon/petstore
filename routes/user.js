@@ -7,6 +7,7 @@ router.post("/logout", UserController.logout);
 
 // Only to be done by a logged-in user
 router.post("/", UserController.createUser);
+router.get("/", UserController.listUsers);
 router.post("/createWithArray", UserController.createWithArray);
 router.post("/createWithList", UserController.createWithList);
 router.get("/:username", UserController.getUserByUsername);
