@@ -168,6 +168,21 @@
       }
     },
     "/user": {
+      "get": {
+        "tags": ["User"],
+        "summary": "Fetches a list of all users",
+        "responses": {
+          "200": {
+            "description": "Retrieved",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
       "post": {
         "tags": ["User"],
         "summary": "Create a new user",
